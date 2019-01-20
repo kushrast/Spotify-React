@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import {Button, Card, Elevation} from "@blueprintjs/core";
+import "./App.css";
+import ArtistCard from "./artist_card";
 
 class App extends Component {
   render() {
     return (
-      <Card interactive={true} elevation={Elevation.TWO}>
-        <h5><a href="#">Card heading</a></h5>
-        <p>Card content</p>
-        <Button>Submit</Button>
-      </Card>
+      <div class="container">
+        <ArtistCard></ArtistCard>
+        <ArtistCard></ArtistCard>
+        <ArtistCard></ArtistCard>
+      </div>
     );
   }
 }

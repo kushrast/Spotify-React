@@ -1,0 +1,31 @@
+.container {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    margin-top: 20px;
+}
+
+.row_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.artist-card {
+    grid-column-start: 2;
+    margin-bottom: 10px;
+}
+
+.artist {
+    display: flex;
+    align-items: center;
+}
+
+#artist_img {
+    height: 75px;
+}
+
+#artist_name {
+    font-weight: bold;
+    padding-left: 10px;
+}
