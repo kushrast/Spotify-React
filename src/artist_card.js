@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {Card, Elevation, Button} from "@blueprintjs/core";
+import { Icon, Intent } from "@blueprintjs/core";
+import { IconNames } from "@blueprintjs/icons";
 import "./App.css";
 
 class ArtistCard extends Component {
@@ -42,4 +44,44 @@ class ArtistCard extends Component {
   }
 }
 
+class NewArtistCard extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            form: false
+        };
+    }
+
+    switchView = () => {
+        this.setState((state) => {
+            return {form: !this.state.form};
+          });
+    }
+    render() {
+        if (!this.state.form) {
+            return (
+                <Card interactive={true} elevation={Elevation.TWO} className="artist-card" onClick={this.switchView}>
+                    <div class="row_container">
+                        <Icon icon={IconNames.PLUS} iconSize="60" intent={Intent.SUCCESS}></Icon>
+                    </div>
+                </Card>
+            );
+        } else {
+            return (
+                <Card interactive={true} elevation={Elevation.TWO} className="artist-card">
+                <div class="form_container">
+                    <Button onClick={this.switchView} id="form_back" className="right_space">Back</Button>
+                    <div className="bp3-input-group .modifier right_space">
+                        <span class="bp3-icon bp3-icon-search"></span>
+                        <input class="bp3-input" type="search" placeholder="Search input" dir="auto" />
+                    </div>
+                    <Button onClick={this.switchView} id="form_enter" intent={Intent.SUCCESS}>Go</Button>
+                </div>
+            </Card>
+            );
+        }
+    }
+}
+
+export {NewArtistCard};
 export default ArtistCard;

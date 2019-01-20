@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import "./App.css";
-import ArtistCard from "./artist_card";
+import ArtistCard, {NewArtistCard} from "./artist_card";
 
 class App extends Component {
   render() {
     return (
-      <div class="container">
+      <div className="container">
         <ArtistCard></ArtistCard>
         <ArtistCard></ArtistCard>
         <ArtistCard></ArtistCard>
+        <NewArtistCard></NewArtistCard>
       </div>
     );
   }
