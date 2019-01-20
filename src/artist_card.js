@@ -6,14 +6,26 @@ class ArtistCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            listenedTo: "Never"
+            listenedTo: null
         };
     }
     updateListenedTo = (e) => {
         this.setState((state) => {
-            return {listenedTo: "Today"};
+            return {listenedTo: new Date()};
           });
     }
+
+    renderDate = () => {
+        if (this.state.listenedTo == null) {
+            return "Never";
+        } else {
+            if (this.state.listenedTo.getTime() === new Date().getTime()) {
+                return "Today";
+            }
+            return this.state.listenedTo.toDateString();
+        }
+    }
+
   render() {
     return (
     <Card interactive={true} elevation={Elevation.TWO} className="artist-card">
@@ -22,7 +34,7 @@ class ArtistCard extends Component {
                 <img src="http://www.wethefest.com/uploads/lineups/louis-the-child_MfIkG7Tjpw.jpeg" id="artist_img"/>
                 <span id="artist_name">Louis the Child</span>
             </div>
-            <span> Last listened to: {this.state.listenedTo}</span>
+            <span> Last listened to: {this.renderDate()}</span>
             <Button large="True" intent="success" onClick={this.updateListenedTo}>Update</Button>
         </div>
     </Card>
