@@ -107,7 +107,6 @@ class NewArtistCard extends Component<{}, NewArtistProps> {
     private handleValueChange = (artist: ArtistSearchItem) => this.setState({ artist });
 
     private querySpotify = (query: string, items: ArtistSearchItem[]) => {
-
     }
 }
 
